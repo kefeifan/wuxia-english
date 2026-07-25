@@ -947,7 +947,7 @@ function buildChest(){
 
 /* ================= 场景生成 ================= */
 function buildScene(idx){
-  /* 清空 */
+  G.level=idx;  /* buildScene 本身应同步当前关卡，避免 HUD 显示旧关卡名 */
   if(scene) scene.traverse(o=>{ if(o.geometry) o.geometry.dispose(); });
   scene=new THREE.Scene();
   const L=LEVELS[idx];
